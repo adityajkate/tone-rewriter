@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Retone</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <main class="shell">
+
+    <header class="reveal" style="--index: 0">
+      <p class="eyebrow">Tone rewriter</p>
+      <h1 class="hero">Same meaning.<br /><em>Different voice.</em></h1>
+      <p class="standfirst">Paste a paragraph, pick how it should sound, and get it back rewritten. Your text is never stored.</p>
+    </header>
+
+    <hr class="rule" />
+
+    <section class="card reveal" style="--index: 1">
+      <div class="card__section">
+        <label class="label" for="input">Your text</label>
+        <textarea id="input" placeholder="An idea, an email, a message you are not happy with yet."></textarea>
+      </div>
+
+      <div class="card__section">
+        <span class="label">Tone</span>
+        <div class="tags" id="tones"></div>
+        <label class="label is-hidden" for="custom">Custom tone</label>
+        <input id="custom" type="text" placeholder="Or describe one: dry and technical, warm but brief, deadpan…" />
+      </div>
+
+      <div class="card__section actions">
+        <p class="hint"><kbd>Ctrl</kbd> <kbd>Enter</kbd> to run</p>
+        <button id="run" class="button" type="button">Rewrite</button>
+      </div>
+
+      <div class="card__section is-hidden" id="statusWrap">
+        <p id="status"></p>
+      </div>
+    </section>
+
+    <section class="card reveal is-hidden" id="resultWrap" style="--index: 2">
+      <div class="card__section">
+        <div class="result__head">
+          <span class="label">Rewritten <span id="resultTone"></span></span>
+          <button id="copy" class="ghost" type="button">
+            <svg width="15" height="15" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+              <path d="M216 32H88a8 8 0 0 0-8 8v40H40a8 8 0 0 0-8 8v128a8 8 0 0 0 8 8h128a8 8 0 0 0 8-8v-40h40a8 8 0 0 0 8-8V40a8 8 0 0 0-8-8m-56 176H48V96h112Zm48-48h-32V88a8 8 0 0 0-8-8H96V48h112Z" />
+            </svg>
+            <span id="copyLabel">Copy</span>
+          </button>
+        </div>
+        <p id="output"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
