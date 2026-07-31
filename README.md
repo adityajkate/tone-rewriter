@@ -39,6 +39,6 @@ without the primary faces fall back to Helvetica, Georgia, and Menlo.
 
 ## Notes
 
-- `reasoning_content` from `gpt-oss-120b` is intentionally discarded; only the
+- `reasoning_content` from `deepseek-v4-pro` is intentionally discarded; only the
   final rewritten text is returned.
 - `Ctrl`/`Cmd` + `Enter` runs the rewrite.
