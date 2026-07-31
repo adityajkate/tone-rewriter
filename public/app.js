@@ -95,6 +95,38 @@ copy.addEventListener('click', async () => {
   setTimeout(() => (copyLabel.textContent = 'Copy'), 1200)
 })
 
+/* Theme ------------------------------------------------------------------ */
+
+const root = document.documentElement
+const themeToggle = document.querySelector('.theme-toggle')
+const systemDark = window.matchMedia('(prefers-color-scheme: dark)')
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+function storedTheme() {
+  try { return localStorage.getItem('theme') } catch { return null }
+}
+
+function setTheme(theme, persist = false) {
+  const apply = () => (root.dataset.theme = theme)
+  if (document.startViewTransition && !reducedMotion.matches) {
+    document.startViewTransition(apply)
+  } else {
+    apply()
+  }
+  if (persist) {
+    try { localStorage.setItem('theme', theme) } catch {}
+  }
+}
+
+themeToggle.addEventListener('click', () => {
+  setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark', true)
+})
+
+systemDark.addEventListener('change', (e) => {
+  if (storedTheme()) return // an explicit choice wins over system changes
+  setTheme(e.matches ? 'dark' : 'light')
+})
+
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
