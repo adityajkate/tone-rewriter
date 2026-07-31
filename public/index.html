@@ -5,8 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Retone</title>
 <link rel="stylesheet" href="styles.css" />
+<script>
+  // Apply the saved or system theme before paint to avoid a flash of light mode.
+  try {
+    var t = localStorage.getItem('theme')
+    if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.dataset.theme = 'dark'
+    }
+  } catch (e) {}
+</script>
 </head>
 <body>
+  <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" />
+      <path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M19.4 4.6l-2.1 2.1M6.7 17.3l-2.1 2.1" />
+    </svg>
+    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M20.4 13.4A8.5 8.5 0 0 1 10.6 3.6a8.5 8.5 0 1 0 9.8 9.8Z" />
+    </svg>
+  </button>
+
   <div class="ambient" aria-hidden="true"></div>
 
   <main class="shell">
