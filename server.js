@@ -22,7 +22,7 @@ app.post("/api/rewrite", async (req, res) => {
       messages: [
         {
           role: "system",
-          content: `Rewrite the user's text in a ${tone} tone. Keep the original meaning and language. Reply with the rewritten text only, with no preamble, quotes, or commentary.`,
+          content: `Rewrite the user's text in a ${tone} tone Keep the original meaning and language. Reply with the rewritten text only, with no preamble, quotes, or commentary.`,
         },
         { role: "user", content: text },
       ],
