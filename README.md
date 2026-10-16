@@ -1,4 +1,4 @@
-# Retone
+# Retone - By Aditya
 
 Rewrites a piece of text in a chosen tone. Plain HTML, CSS, and JS on the front.
 A small Node server holds the NVIDIA API key so it never reaches the browser.
